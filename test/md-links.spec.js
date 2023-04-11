@@ -8,7 +8,7 @@ import {
 // eslint-disable-next-line import/extensions
 import { mdLinks } from '../src/index.js';
 
-
+// tengo que poner unos test que adelante en main
 const resultExpect = [{
   href: 'https://social-network-a6b7f.web.app/',
   host: 'social-network-a6b7f.web.app',
@@ -53,6 +53,10 @@ test('test that proves mdLinks with option false', () => {
 test('this proves mdLinks when the promise is reject', () => {
   mdLinks('C:/Users/D_Elizabeth/Laboratoria/proyecto4/DEV003-md-links/prueba1.txt', { validate: true })
     .catch((error) => expect(error.message).toMatch('El archivo no tiene terminación .md'));
+});
+test('this proves mdLinks when the promise is reject', () => {
+  mdLinks('C:/Users/D_Elizabeth/Laboratoria/proyecto4/DEV003-md-links/prueba.txt', { validate: true })
+    .catch((error) => expect(error.message).toMatch('El path no es válido'));
 });
 // --------------------- peticiones HTTP ----------------------------------
 test('return the petition HTTP', () => {
