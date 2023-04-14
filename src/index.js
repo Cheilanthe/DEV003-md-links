@@ -46,7 +46,15 @@ export const linksBroken = (array) => {
   const brokenLinks = array.filter((link) => link.ok === 'fail');
   return brokenLinks.length;
 };
-
+export const uniqueLinks = (array) => {
+  const uniques = [];
+  array.forEach((link) => {
+    if (!uniques.includes(link.href)) {
+      uniques.push(link.href);
+    }
+  });
+  return uniques.length;
+};
 // -------------Pruebas -------------------------}
 const pathCompleted = 'C:/Users/D_Elizabeth/Laboratoria/proyecto4/DEV003-md-links/PRUEBA1.md';
 // const pathRelative ='./PRUEBA1.md';
@@ -54,10 +62,10 @@ const pathCompleted = 'C:/Users/D_Elizabeth/Laboratoria/proyecto4/DEV003-md-link
 const fileName1 = './PRUEBA2.md';
 // const pruebaReal = 'C:/Users/D_Elizabeth/Laboratoria/proyecto3/DEV003-social-network/README.md'
 
-// mdLinks(pathCompleted)
 // mdLinks(pathCompleted, { validate: true })
 //   .then((links) => {
-//     console.log('ok:', linksOk(links), 'broken:', linksBroken(links))})
+//     console.log('ok:', linksOk(links), 'broken:', linksBroken(links), 'uniques: ', uniqueLinks(links));
+//   })
 //   .catch((error) => (error));
 // mdLinks(fileName1)
 //   .then((links) => links)
