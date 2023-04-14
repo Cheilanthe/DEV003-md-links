@@ -38,17 +38,26 @@ export const mdLinks = (path, option) => new Promise((resolve, reject) => {
     reject(new Error('El path no es válido'));
   }
 });
+export const linksOk = (array) => {
+  const okLinks = array.filter((link) => link.ok === 'ok');
+  return okLinks.length;
+};
+export const linksBroken = (array) => {
+  const brokenLinks = array.filter((link) => link.ok === 'fail');
+  return brokenLinks.length;
+};
 
 // -------------Pruebas -------------------------}
-// const pathCompleted = 'C:/Users/D_Elizabeth/Laboratoria/proyecto4/DEV003-md-links/PRUEBA1.md';
+const pathCompleted = 'C:/Users/D_Elizabeth/Laboratoria/proyecto4/DEV003-md-links/PRUEBA1.md';
 // const pathRelative ='./PRUEBA1.md';
 // const errorPath ='./PRUEBA.md';
 const fileName1 = './PRUEBA2.md';
 // const pruebaReal = 'C:/Users/D_Elizabeth/Laboratoria/proyecto3/DEV003-social-network/README.md'
 
 // mdLinks(pathCompleted)
-// mdLinks(pruebaReal, { validate: true })
-//   .then((links) => links)
+// mdLinks(pathCompleted, { validate: true })
+//   .then((links) => {
+//     console.log('ok:', linksOk(links), 'broken:', linksBroken(links))})
 //   .catch((error) => (error));
 // mdLinks(fileName1)
 //   .then((links) => links)

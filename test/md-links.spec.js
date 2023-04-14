@@ -91,4 +91,3 @@ test('getLinks from a data', () => {
   }];
   expect(getLinksMock(dataFake, pathFake)).toEqual(arrayExpect);
 });
-// ----------------- función para leer de asincrono un file --------------------

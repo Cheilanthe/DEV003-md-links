@@ -18,6 +18,7 @@ export const evaluatePath = (pathUser) => {
 };
 // ----------Evalua si existe el path-------------
 export const isPathTrue = (pathUser) => fs.existsSync(pathUser);
+// console.log(isPathTrue('C:/Users/D_Elizabeth/Laboratoria/proyecto3/DEV003-social-network/README.md'));
 
 // -------------retorna el contenido de un dir ---------------
 export const contentDir = (pathUser) => fs.readdirSync(pathUser);
