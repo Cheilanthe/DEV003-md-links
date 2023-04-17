@@ -37,11 +37,13 @@ En este proyecto se desarrolló una línea de comando (CLI) así como una librer
 ###### `mdLinks(path)`
 Puedes utilizar esta librería para ver los links que contiene tu marckdown. Debes poner el comando `mdLinks(path)`
 * `path`: Ruta **absoluta** o **relativa** al **archivo** o **directorio**.
-Si la ruta pasada es relativa, debes estar posicionado en el sitio dónde se encuentra dicho archivo, de lo contrario debes colcar el path absoluto.
+Si la ruta pasada es relativa, debes estar posicionado en el sitio dónde se encuentra dicho archivo, de lo contrario debes colocar el path absoluto.
 ![links](./links.png "Por default se muestran las ligas con su respectiva info.")
 * `path`: Ruta del archivo donde se encontró el link. `link`: URL encontrada. `host`: Texto que aparecía dentro del link (`<a>`). 
 
-
+###### `option --hep -h`
+Con este comando podemos ver una breve descripción de su uso: 
+![help](./help.png)
 ###### `option --validate`
 Si pasamos la opción `--validate`, se hace una petición HTTP para averiguar si el link funciona o no. Por ejemplo:
 * `status`: Código de respuesta HTTP (200, 400, etc.). 
@@ -58,7 +60,7 @@ Si pasamos la opción `--stats` el output (salida) será un texto con estadísti
 También podemos combinar `--stats` y `--validate` para obtener estadísticas que
 necesiten de los resultados de la validación. Ejemplo: 
 ![both](./statsANDvalidate.png "Se muestra el conteo de los links totales, únicos, rotos y que funcionan correctamente.")
-* `Total`: 3; `Links ok`: 3; `Links broken`: 1.
+* `Total`: 3; `Links ok`: 3; `Links broken`: 2.
 
 
 ## 4. Objetivos de aprendizaje
