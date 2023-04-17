@@ -21,8 +21,6 @@ Estos archivos `Markdown` normalmente contienen _links_ (vínculos/ligas) que
 muchas veces están rotos o ya no son válidos y eso perjudica mucho el valor de
 la información que se quiere compartir.
 
-![md-links](https://user-images.githubusercontent.com/110297/42118443-b7a5f1f0-7bc8-11e8-96ad-9cc5593715a6.jpg)
-
 ## 2. Resumen del proyecto
 En este proyecto se creó una librería usando [Node.js](https://nodejs.org/). Esta librería lee y analiza archivos
 en formato `Markdown` (.md) y verificar los links que contengan. También cuenta la cantidad de links totales, únicos, rotos y los que funcionan correctamente.
