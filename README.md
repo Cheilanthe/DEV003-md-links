@@ -31,8 +31,8 @@ En este proyecto se desarrolló una línea de comando (CLI) así como una librer
 
 #### `mdLinks(path, options)`
 Para utilizar esta librería utiliza el siguiente comando: 
-```
-npm install  npm install cheilanthes/md-links
+```sh
+npm install cheilanthes/md-links
 ```
 ##### Argumentos
 ###### `mdLinks(path)`
@@ -54,7 +54,6 @@ Example with path abs: md-links C:/Users/Users/Laboratoria/proyectos/social-netw
 Example with path relative: md-links ./DEV003-social-network/README.md
 Also you can use the options --validate  for request the http status, and --stast to count valid, unique or broken links.
 ```
-
 ###### `default`
 ```sh
  C:\Users\D_Elizabeth\Laboratoria\proyecto4\DEV003-md-links> md-links C:\Users\D_Elizabeth\Laboratoria\proyecto4\DEV003-md-links\pruebas\PRUEBA1.md
