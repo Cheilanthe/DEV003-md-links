@@ -2,7 +2,7 @@ import {
   expect, test, jest, it, describe,
 } from '@jest/globals';
 import {
-  readFileUser, getLinks, petitionHTTP, validateLinks,
+  getLinks, petitionHTTP, evaluatePath,
 // eslint-disable-next-line import/extensions
 } from '../src/functions.js';
 // eslint-disable-next-line import/extensions
@@ -51,16 +51,16 @@ test('test that proves mdLinks with option false', () => {
 
 // test cuando la función rechaza la promesa ---------------------
 test('this proves mdLinks when the promise is reject', () => {
-  mdLinks('C:/Users/D_Elizabeth/Laboratoria/proyecto4/DEV003-md-links/prueba1.txt', { validate: true })
+  mdLinks('C:/Users/D_Elizabeth/Laboratoria/proyecto4/DEV003-md-links/pruebas/prueba1.txt', { validate: true })
     .catch((error) => expect(error.message).toMatch('El archivo no tiene terminación .md'));
 });
 test('this proves mdLinks when the promise is reject', () => {
-  mdLinks('C:/Users/D_Elizabeth/Laboratoria/proyecto4/DEV003-md-links/prueba.txt', { validate: true })
+  mdLinks('C:/Users/D_Elizabeth/Laboratoria/proyecto4/DEV003-md-links/pruebas/prueba.txt', { validate: true })
     .catch((error) => expect(error.message).toMatch('El path no es válido'));
 });
 
 test('this proves mdLinks when the promise is reject', () => {
-  mdLinks('C:/Users/D_Elizabeth/Laboratoria/proyecto4/DEV003-md-links/PRUEBA2.md', { validate: true })
+  mdLinks('C:/Users/D_Elizabeth/Laboratoria/proyecto4/DEV003-md-links/pruebas/PRUEBA2.md', { validate: true })
     .catch((error) => expect(error.message).toMatch('No hay links para validar'));
 });
 // --------------------- peticiones HTTP ----------------------------------
@@ -83,11 +83,18 @@ test('return the petition HTTP', () => {
 const getLinksMock = jest.fn().mockImplementationOnce(getLinks);
 test('getLinks from a data', () => {
   const dataFake = '[Markdown](https://es.wikipedia.org/wiki/Markdown) es un lenguaje de marcado ligero muy popular entre developers';
-  const pathFake = 'C:/Users/D_Elizabeth/Laboratoria/proyecto4/DEV003-md-links/PRUEBA1.md';
+  const pathFake = 'C:/Users/D_Elizabeth/Laboratoria/proyecto4/DEV003-md-links/pruebas/PRUEBA1.md';
   const arrayExpect = [{
     href: 'https://es.wikipedia.org/wiki/Markdown',
     host: 'es.wikipedia.org',
-    pathText: 'C:/Users/D_Elizabeth/Laboratoria/proyecto4/DEV003-md-links/PRUEBA1.md',
+    pathText: 'C:/Users/D_Elizabeth/Laboratoria/proyecto4/DEV003-md-links/pruebas/PRUEBA1.md',
   }];
   expect(getLinksMock(dataFake, pathFake)).toEqual(arrayExpect);
+});
+// ----------- Nonmaliza los paths ------------------------
+test('evaluate the path', () => {
+  const pathe = '.\\pruebas\\prueba1.txt';
+  const pathexpect = 'C:/Users/D_Elizabeth/Laboratoria/proyecto4/DEV003-md-links/pruebas/prueba1.txt';
+  // const pathRelativ = './Laboratoria/proyecto4/DEV003-md-links';
+  expect(evaluatePath(pathe)).toEqual(pathexpect);
 });

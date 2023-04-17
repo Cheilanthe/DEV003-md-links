@@ -30,7 +30,10 @@ En este proyecto se desarrolló una línea de comando (CLI) así como una librer
 ## 3. Implementación y uso
 
 #### `mdLinks(path, options)`
-
+Para utilizar esta librería utiliza el siguiente comando: 
+```
+npm install  npm install cheilanthes/md-links
+```
 ##### Argumentos
 ###### `mdLinks(path)`
 Puedes utilizar esta librería para ver los links que contiene tu marckdown. Debes poner el comando `mdLinks(path)`
@@ -42,30 +45,57 @@ $ md-links
 WELCOME! This library validate the URL. Please enter a path
 if you need help use the following commands: -help or -h
 ```
-![links](img/links.png "Por default se muestran las ligas con su respectiva info.")
+###### `default`
+```
+ C:\Users\D_Elizabeth\Laboratoria\proyecto4\DEV003-md-links> md-links C:\Users\D_Elizabeth\Laboratoria\proyecto4\DEV003-md-links\pruebas\PRUEBA1.md         dddd C:/Users/D_Elizabeth/Laboratoria/proyecto4/DEV003-md-links/pruebas/prueba1.txt
+path: C:\Users\D_Elizabeth\Laboratoria\proyecto4\DEV003-md-links\pruebas\PRUEBA1.md link: https://es.wikipedia.org/wiki/Markdown host: es.wikipedia.org
+path: C:\Users\D_Elizabeth\Laboratoria\proyecto4\DEV003-md-links\pruebas\PRUEBA1.md link: https://nodejs.org/ host: nodejs.org
+path: C:\Users\D_Elizabeth\Laboratoria\proyecto4\DEV003-md-links\pruebas\PRUEBA1.md link: https://css-tricks.com/oohcrap host: css-tricks.com
+path: C:\Users\D_Elizabeth\Laboratoria\proyecto4\DEV003-md-links\pruebas\PRUEBA1.md link: https://css-tricks.com/oohcrap host: css-tricks.com
+```
+
 * `path`: Ruta del archivo donde se encontró el link. `link`: URL encontrada. `host`: Texto que aparecía dentro del link (`<a>`). 
 
 ###### `option --hep -h`
-Con este comando podemos ver una breve descripción de su uso: 
-![help](./img/help.png)
+```
+PS C:\Users\D_Elizabeth\Laboratoria\proyecto4\DEV003-md-links> md-links -help
+To use this library you must write an absolute or a relative path
+Example with path abs: md-links C:/Users/Users/Laboratoria/proyectos/social-network/README.md
+Example with path relative: md-links ./DEV003-social-network/README.md
+Also you can use the options --validate  for request the http status, and --stast to count valid, unique or broken links.
+```
 ###### `option --validate`
 Si pasamos la opción `--validate`, se hace una petición HTTP para averiguar si el link funciona o no. Por ejemplo:
 * `status`: Código de respuesta HTTP (200, 400, etc.). 
 * `ok`: Mensaje `fail` en caso de fallo u `ok` en caso de éxito. 
 Ejemplo:
-![validate](./img/validate.png "Se muestran las ligas con el estatus de la petición HTTP.")
+```
+C:\Users\D_Elizabeth\Laboratoria\proyecto4\DEV003-md-links> md-links C:\Users\D_Elizabeth\Laboratoria\proyecto4\DEV003-md-links\pruebas\PRUEBA1.md --validate
+dddd C:/Users/D_Elizabeth/Laboratoria/proyecto4/DEV003-md-links/pruebas/prueba1.txt
+(node:12536) ExperimentalWarning: The Fetch API is an experimental feature. This feature could change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+path: C:\Users\D_Elizabeth\Laboratoria\proyecto4\DEV003-md-links\pruebas\PRUEBA1.md link: https://es.wikipedia.org/wiki/Markdown status 200 ok host: es.wikipedia.org
+path: C:\Users\D_Elizabeth\Laboratoria\proyecto4\DEV003-md-links\pruebas\PRUEBA1.md link: https://nodejs.org/ status 200 ok host: nodejs.org
+path: C:\Users\D_Elizabeth\Laboratoria\proyecto4\DEV003-md-links\pruebas\PRUEBA1.md link: https://css-tricks.com/oohcrap status 404 fail host: css-tricks.com 
+path: C:\Users\D_Elizabeth\Laboratoria\proyecto4\DEV003-md-links\pruebas\PRUEBA1.md link: https://css-tricks.com/oohcrap status 404 fail host: css-tricks.com 
+```
+
 * `path`: Ruta del archivo donde se encontró el link. `link`: URL encontrada. `status`: Código de respuesta HTTP. `host`: Texto que aparecía dentro del link (`<a>`).
 
 ###### `option --stats`
 Si pasamos la opción `--stats` el output (salida) será un texto con estadísticas básicas sobre los links. Por ejemplo:
-![stats](./img/stats.png "Se muestra el conteo de los links totales y únicos.")
-* `Total`: 3 `Links uniques`: 3.
+```
+PS C:\Users\D_Elizabeth\Laboratoria\proyecto4\DEV003-md-links> md-links C:\Users\D_Elizabeth\Laboratoria\proyecto4\DEV003-md-links\pruebas\PRUEBA1.md --stats
+Total: 4 Links uniques:  3
+```
+
 ###### `option --stats --validate`
 También podemos combinar `--stats` y `--validate` para obtener estadísticas que
 necesiten de los resultados de la validación. Ejemplo: 
-![both](./img/statsANDvalidate.png "Se muestra el conteo de los links totales, únicos, rotos y que funcionan correctamente.")
-* `Total`: 3; `Links ok`: 3; `Links broken`: 2.
-
+```
+PS C:\Users\D_Elizabeth\Laboratoria\proyecto4\DEV003-md-links> md-links C:\Users\D_Elizabeth\Laboratoria\proyecto4\DEV003-md-links\pruebas\PRUEBA1.md --stats --validate
+Total: 4 Links ok: 2 Links broken: 2
+```
 
 ## 4. Objetivos de aprendizaje
 

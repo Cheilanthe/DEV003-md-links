@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 
 import chalk from 'chalk';
-import { mdLinks, linksBroken, linksOk, uniqueLinks } from './index.js';
+import {
+  mdLinks, linksBroken, linksOk, uniqueLinks,
+} from './index.js';
 
 const blue = chalk.hex('#0A9396');
 const orange = chalk.hex('#CA6702');

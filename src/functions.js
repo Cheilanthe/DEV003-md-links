@@ -9,13 +9,19 @@ import url from 'node:url';
 
 // ---------Evalua que el path sea abs y hace la lectura del abs-------
 export const evaluatePath = (pathUser) => {
-  let pathNormalize = pathUser;
   if (path.isAbsolute(pathUser)) {
+    // pathUser.replace(/[\\/]+/g, '/');
     return pathUser;
   }
-  pathNormalize = path.resolve(pathNormalize).replace(/\\/g, '/');
-  return pathNormalize;
+  // const pathResolve = path.resolve(pathUser);
+  // const pathNormalize = path.normalize(pathResolve);
+  // const pathNormalize = pathResolve.replace(/[\\/]+/g, '/');
+  // return pathNormalize;
+  return path.resolve(pathUser).replace(/[\\/]+/g, '/');
 };
+const prueba = evaluatePath('.\\pruebas\\prueba1.txt');
+console.log('dddd', prueba);
+// console.log(evaluatePath('C:\\Users\\D_Elizabeth\\Laboratoria\\proyecto4\\DEV003-md-links'));
 // ----------Evalua si existe el path-------------
 export const isPathTrue = (pathUser) => fs.existsSync(pathUser);
 
