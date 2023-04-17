@@ -36,28 +36,34 @@ En este proyecto se desarrolló una línea de comando (CLI) así como una librer
 Puedes utilizar esta librería para ver los links que contiene tu marckdown. Debes poner el comando `mdLinks(path)`
 * `path`: Ruta **absoluta** o **relativa** al **archivo** o **directorio**.
 Si la ruta pasada es relativa, debes estar posicionado en el sitio dónde se encuentra dicho archivo, de lo contrario debes colocar el path absoluto.
-![links](./links.png "Por default se muestran las ligas con su respectiva info.")
+```sh
+D_Elizabeth@Elizabeth MINGW64 ~/laboratoria/proyecto4/DEV003-md-links (main)
+$ md-links
+WELCOME! This library validate the URL. Please enter a path
+if you need help use the following commands: -help or -h
+```
+![links](img/links.png "Por default se muestran las ligas con su respectiva info.")
 * `path`: Ruta del archivo donde se encontró el link. `link`: URL encontrada. `host`: Texto que aparecía dentro del link (`<a>`). 
 
 ###### `option --hep -h`
 Con este comando podemos ver una breve descripción de su uso: 
-![help](./help.png)
+![help](./img/help.png)
 ###### `option --validate`
 Si pasamos la opción `--validate`, se hace una petición HTTP para averiguar si el link funciona o no. Por ejemplo:
 * `status`: Código de respuesta HTTP (200, 400, etc.). 
 * `ok`: Mensaje `fail` en caso de fallo u `ok` en caso de éxito. 
 Ejemplo:
-![validate](./validate.png "Se muestran las ligas con el estatus de la petición HTTP.")
+![validate](./img/validate.png "Se muestran las ligas con el estatus de la petición HTTP.")
 * `path`: Ruta del archivo donde se encontró el link. `link`: URL encontrada. `status`: Código de respuesta HTTP. `host`: Texto que aparecía dentro del link (`<a>`).
 
 ###### `option --stats`
 Si pasamos la opción `--stats` el output (salida) será un texto con estadísticas básicas sobre los links. Por ejemplo:
-![stats](./stats.png "Se muestra el conteo de los links totales y únicos.")
+![stats](./img/stats.png "Se muestra el conteo de los links totales y únicos.")
 * `Total`: 3 `Links uniques`: 3.
 ###### `option --stats --validate`
 También podemos combinar `--stats` y `--validate` para obtener estadísticas que
 necesiten de los resultados de la validación. Ejemplo: 
-![both](./statsANDvalidate.png "Se muestra el conteo de los links totales, únicos, rotos y que funcionan correctamente.")
+![both](./img/statsANDvalidate.png "Se muestra el conteo de los links totales, únicos, rotos y que funcionan correctamente.")
 * `Total`: 3; `Links ok`: 3; `Links broken`: 2.
 
 

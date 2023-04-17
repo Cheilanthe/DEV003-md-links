@@ -1,5 +1,5 @@
 {
-  "name": "md-links",
+  "name": "cheilanthes-md-links",
   "version": "0.1.0",
   "description": "This proyect evaluates the links of a markdown document",
   "main": "index.js",
