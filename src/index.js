@@ -55,7 +55,7 @@ export const uniqueLinks = (array) => {
   });
   return uniques.length;
 };
-// -------------Pruebas -------------------------}
+// -------------Pruebas -------------------------
 const pathCompleted = 'C:/Users/D_Elizabeth/Laboratoria/proyecto4/DEV003-md-links/PRUEBA1.md';
 // const pathRelative ='./PRUEBA1.md';
 // const errorPath ='./PRUEBA.md';
